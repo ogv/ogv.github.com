@@ -1,7 +1,20 @@
+
+  // Filter Apply Button
+  function applyFilter() {
+    $('div#filter').hide();
+    $('div#workbench').css('width','160px');
+    $('div#license').show('slow');
+    var script = document.filter_form.filter_text.value;
+    var canvas = document.getElementById("canvas");
+    Processing(canvas, script);
+  } 
+
 // Initialization on document ready
 $(document).ready(function(){
   modeInit();
   loadWave();
+
+
 });
 
 
@@ -18,24 +31,50 @@ function loadWave() {
   $('img#wave_button').css('display','inline');
 }
 
+// sammy.js
+
+$(function() { app.run(); });
+
+var app =  $.sammy(function() {
+ this.get('#/create', function() {
+    $('div#license').hide();
+    $('div#workbench').css('width','75%');
+    $('div#filter').show('slow');
+  });
+});
+
 // Mode Changes
 function modeInit() {
   var wave = false;
   var timeline = false;
   var filter = false;
   var clip_bin = false;
+  var filter = false;
 
   $('a#wave_button').click(function(event){
     if (wave == false) {
-      $('div#github-commit-badge-container').show('slow');
       $('div#waveframe').css('right','144px');
       wave = true;
     } else {
       $('div#waveframe').css('right','-1000px');
-      $('div#github-commit-badge-container').hide();
       wave = false;
     }
   });
+
+  $('a#filter_button').click(function(event){
+    if (filter == false) {
+      $('div#workbench').css('width','75%');
+      $('div#license').hide();
+      $('div#filter').show('slow');
+      filter = true;
+    } else {
+      $('div#workbench').css('width','160px');
+      $('div#filter').hide();
+      $('div#license').show('slow');
+      filter = false;
+    }
+  });
+
 
   $('a#clip_button').click(function(event){
     if (clip_bin == false) {
