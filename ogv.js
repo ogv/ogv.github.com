@@ -13,7 +13,7 @@
 // Initialization on document ready
 $(document).ready(function(){
   modeInit();
-  //loadWave(); // I recommend commenting this during non-wave development
+  loadWave(); // I recommend commenting this during non-wave development
 
 
 });
