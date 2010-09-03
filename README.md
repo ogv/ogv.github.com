@@ -1,3 +1,6 @@
+# OGV is deprecated and no longer maintained, you probably want to be looking for Memetec or http://mem.ec/
+
+
 Example to place in media/:
 http://lightcorp.net/garage/media/berg320.30min.ogv
 
